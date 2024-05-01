@@ -55,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                          KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, RSFT_T(KC_EQL),
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-                        CM_TOGG, DEL_ALT,  LGUI_LNG2, LW_SPC, KC_MS_BTN1,             KC_MS_BTN2,  RS_ENT, RGUI_LNG1, DEL_ALT,  KC_BSPC,
+                        CM_TOGG, DEL_ALT,  LGUI_LNG2, LW_SPC, KC_MS_BTN1,             KC_MS_BTN2,  RS_ENT, RGUI_LNG1, DEL_ALT,  KC_TAB,
                                                                  KC_PGUP, KC_MS_BTN3,  KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX
                                                             //`--------------'  `--------------'
     ),
   [_LOWER] = LAYOUT(
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
-      KC_ESC,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
+      KC_TAB,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
       KC_LCTL, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_QUOT,
   //|-------------------------------------------------------|                                   |-------------------------------------------------------|
@@ -211,9 +211,9 @@ bool oled_task_user(void) {
 
 #ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_bs1[] = {KC_LCTL, KC_H, COMBO_END};
-const uint16_t PROGMEM combo_bs2[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_bs2[] = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM combo_grave[] = {KC_P, KC_MINS, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_F, KC_G, COMBO_END};
 const uint16_t PROGMEM combo_home[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_end[] = {KC_Z, KC_X, COMBO_END};
 combo_t key_combos[] = {
