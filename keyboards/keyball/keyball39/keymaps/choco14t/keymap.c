@@ -33,13 +33,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
     KC_A     , KC_S     , KC_D     , KC_F     , LGUI_T(KC_G)     ,                    KC_H     , KC_J     , KC_K     , KC_L     , RCTL_T(KC_SCLN)  ,
- LSFT_T(KC_Z),LCTL_T(KC_X), KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , RGUI_T(KC_COMM)  , LT(3,KC_DOT)   , RSFT_T(KC_SLSH)  ,
+ LSFT_T(KC_Z),LCTL_T(KC_X), KC_C   , KC_V     , KC_B     ,                            KC_N     , KC_M     , RGUI_T(KC_COMM)  , LT(3,KC_DOT)   , RSFT_T(KC_SLSH)  ,
     KC_LALT  , KC_LGUI  , KC_LCTL  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_NO,KC_NO, KC_RALT
   ),
 
   [1] = LAYOUT_universal(
     KC_1     , KC_2     , KC_3     , KC_4     , KC_5     ,                            KC_6   , KC_7     , KC_8     , KC_9     , KC_0,
-    KC_F5    , KC_EXLM  , S(KC_6)  , KC_BSLS  , KC_LBRC  ,                            KC_RBRC, KC_BTN1  , KC_BTN3  , KC_BTN2  , RCTL_T(KC_QUOT),
+    KC_F5    , KC_EXLM  , S(KC_6)  , KC_BSLS  , LSFT_T(KC_LBRC),              RSFT_T(KC_RBRC), KC_BTN1  , KC_BTN3  , KC_BTN2  , RCTL_T(KC_QUOT),
     S(KC_EQL),S(KC_LBRC), S(KC_7)  , KC_EQL   , KC_GRV   ,                            KC_MINS, KC_BTN4  , KC_PGDN  , KC_BTN5  , _______,
     KC_LSFT  , KC_EQL   , KC_LCTL  , _______  , _______  , _______  ,      _______   ,_______, _______  , KC_NO    , KC_NO    , _______
   ),
@@ -128,3 +128,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+#ifdef COMBO_ENABLE
+const uint16_t PROGMEM combo_bs1[] = {RCTL_T(KC_SCLN), KC_H, COMBO_END};
+const uint16_t PROGMEM combo_bs2[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM combo_quot[] = {KC_L, RCTL_T(KC_SCLN), COMBO_END};
+const uint16_t PROGMEM combo_grave[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_lalt[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo_bs1, KC_BSPC),
+    COMBO(combo_bs2, KC_BSPC),
+    COMBO(combo_quot, KC_QUOT),
+    COMBO(combo_grave, KC_GRAVE),
+    COMBO(combo_lalt, KC_LALT),
+    COMBO(combo_tab, KC_TAB),
+    COMBO(combo_esc, KC_ESC),
+};
+#endif
